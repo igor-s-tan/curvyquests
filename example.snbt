@@ -1,0 +1,70 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "example"
+	group: ""
+	id: "65B23A786D14098F"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "7BBAAE7AA9AFFC15"
+			tasks: [{
+				id: "3C4393DF5A1063D3"
+				item: "minecraft:cake"
+				type: "item"
+			}]
+			x: -22.0d
+			y: -7.5d
+		}
+		{
+			curves: {
+				7BBAAE7AA9AFFC15: [
+					1.8d
+					-0.7d
+					-50.0d
+					-50.0d
+				]
+			}
+			dependencies: ["7BBAAE7AA9AFFC15"]
+			id: "3340D4EB8206B646"
+			tasks: [{
+				id: "46E0DCEDBE83E371"
+				item: "minecraft:cake"
+				type: "item"
+			}]
+			x: -24.0d
+			y: -7.5d
+		}
+		{
+			id: "6EFC2F4FF65E57F5"
+			tasks: [{
+				id: "3E821B4FFB302D11"
+				item: "minecraft:cake"
+				type: "item"
+			}]
+			x: -18.0d
+			y: -7.5d
+		}
+		{
+			curves: {
+				6EFC2F4FF65E57F5: [
+					0.33d
+					0.67d
+					50.0d
+					50.0d
+				]
+			}
+			dependencies: ["6EFC2F4FF65E57F5"]
+			id: "3D86DF3F692E4726"
+			tasks: [{
+				id: "6917D46D6C0EE6AE"
+				item: "minecraft:cake"
+				type: "item"
+			}]
+			x: -20.0d
+			y: -7.5d
+		}
+	]
+	title: "example"
+}
