@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class CurvyQuests
 {
     public static final String MODID = "curvyquests";
+
     public static final HashMap<String, HashMap<String, Vector4d>> curves = new HashMap<>();
 
     public CurvyQuests(FMLJavaModLoadingContext context)

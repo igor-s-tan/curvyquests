@@ -71,17 +71,17 @@ public abstract class MixinQuestPanel {
         buffer
             .vertex(m, 0, s, 0.0F)
             .color(255, 255, 255, 1)
-            .uv(0, mu)
+            .uv(0, 0)
             .endVertex();
 
         Pair<Float, Float> last = Pair.of(0f, 0f);
-
+        float shift = 0;
         for (int i = 1; i <= Config.samplingRate + 1; ++i) {
             float step = (float) i / Config.samplingRate;
             Pair<Float, Float> copy = getBezier(begin, end, bezierA, bezierB, step);
             Pair<Float, Float> newPoint = subPairs(copy, last);
 
-            effLen = (float) Math.hypot(newPoint.getLeft(), newPoint.getRight());
+            effLen = (float) Math.hypot(newPoint.getLeft(), newPoint.getRight()) / s / 2.0f + shift;
 
             float alpha = (float) Math.atan2(newPoint.getRight(), newPoint.getLeft());
 
@@ -96,25 +96,27 @@ public abstract class MixinQuestPanel {
             buffer
                 .vertex(m, last.getLeft() + first.getLeft(), last.getRight() + first.getRight(), 0.0F)
                 .color(r, g, b, a)
-                .uv(-effLen / s / 2.0f + mu, 1)
+                .uv(-effLen + mu, 1)
                 .endVertex();
 
             buffer
                 .vertex(m, last.getLeft() + second.getLeft(), last.getRight() + second.getRight(), 0.0F)
                 .color(r, g, b, a)
-                .uv(-effLen / s / 2.0f + mu, 0)
+                .uv(-effLen + mu, 0)
                 .endVertex();
+
+            shift = effLen - (float) Math.floor(effLen);
 
             buffer
                 .vertex(m, last.getLeft() + second.getLeft(), last.getRight() + second.getRight(), 0.0F)
                 .color(r, g, b, a)
-                .uv(mu, 0)
+                .uv(-shift + mu, 0)
                 .endVertex();
 
             buffer
                 .vertex(m, last.getLeft() + first.getLeft(), last.getRight() + first.getRight(), 0.0F)
                 .color(r, g, b, a)
-                .uv(mu, 1)
+                .uv(-shift + mu, 1)
                 .endVertex();
 
             last = copy;

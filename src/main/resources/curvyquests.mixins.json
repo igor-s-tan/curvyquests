@@ -2,11 +2,11 @@
   "required": true,
   "package": "com.igrock888.curvyquests.mixins",
   "mixins": [
-    "MixinQuest",
-    "IMixinQuestButtonAccessor"
+    "MixinQuest"
   ],
   "client": [
-    "MixinQuestPanel"
+    "MixinQuestPanel",
+    "IMixinQuestButtonAccessor"
   ],
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_17",
